@@ -1,0 +1,141 @@
+<div class="container">
+    <div class="row mt-4 mb-4">
+        <div class="col-sm-12 d-flex justify-content-between align-items-center">
+            <h2 class="">Users List</h2>
+            <form class="form-inline mt-2 mt-md-0">
+                <label class="mx-2" for="search"><strong>Search here</strong></label>
+                <input class="form-control mr-sm-2" type="text" placeholder="&#61442; Search" id="search"
+                    aria-label="Search">
+            </form>
+        </div>
+    </div>
+    <div class="row" *ngIf="spinner">
+        <div class="col-sm-6 mb-4" *ngFor="let item of allUsers">
+            <div class="card shadow user-card p-3">
+                <h5>Name: {{item.firstName}} {{item.middelName}} {{item.lastName}}
+                    <button class="text-danger" (click)="deleteModelOpen(item)"><i class="fa fa-trash-o"></i></button>
+                    <button class="text-primary" (click)="editUserModel(item)"><i class="fa fa-pencil-square-o"></i></button>
+                    <button class="text-primary" (click)="viewUserModel(item)"><i class="fa fa-eye"></i></button>
+                </h5>
+                <p>
+                    <span><strong>Email: </strong>{{item.emailId}}</span>
+                </p>
+                <p>
+                    <span><strong>Numner: </strong>{{item.contactNumber}}</span>
+                </p>
+                <p><a class="btn btn-primary ml-0 mr-0" href="" routerLink="{{item._id}}">Detail</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center" *ngIf="!spinner">
+        <img src="../../assets/loading_icon.gif" class="mx-xl-auto" alt="loading icon">
+    </div>
+</div>
+
+<div class="model-waper" *ngIf="modelBox">
+    <section class="model-box card p-5 position-relative">
+        <button class="btn position-absolute top-right" (click)="closeModelBox()">X</button>
+        <h4 class="text-center">Are you sure you want to <span class="text-danger">{{editMode ? "Delete" : "Edit"}}</span> this user? <br/><strong class="text-success">{{userData.firstName}} {{userData.middelName}} {{userData.lastName}}</strong></h4>
+        <div class="row mt-4">
+            <div class="col-sm-12 d-flex justify-content-center">
+                <button class="btn btn-primary mx-1" (click)="closeModelBox()">Close</button>
+                <button *ngIf="editMode" class="btn btn-danger mx-1" (click)="deleteUser()">Delete <span
+                        *ngIf="btnSpinner">...</span></button>
+                <button *ngIf="!editMode" class="btn btn-success mx-1" (click)="editUser()">Edit <span *ngIf="btnSpinner">...</span></button>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<div class="model-waper" *ngIf="viewModelBox">
+    <section class="model-box card p-5 position-relative">
+        <button class="btn position-absolute top-right" (click)="closeModelBox()">X</button>
+        <h4 class="text-center">Sort Detail of <strong class="text-success">{{userValue.firstName}} {{userValue.middelName}} {{userValue.lastName}}</strong></h4>
+        <div class="row mt-2">
+            <div class="col-sm-12 mb-4 user-card">
+                <p><span><strong>Age: </strong>{{userValue.candidateAge}}</span></p>
+                <p><span><strong>Gender: </strong>{{userValue.gender}}</span></p>
+                <p><span><strong>Job Location: </strong>{{userValue.jobLocation}}</span></p>
+                <p><span><strong>Skills: </strong>{{userValue.skills}}</span></p>
+            </div>
+            <div class="col-sm-12 d-flex justify-content-center">
+                <button class="btn btn-primary mx-1" (click)="closeModelBox()">Close</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="image-thumb bottom"><img class="thumb" src="{{item.image}}" width="300" height="300" alt="{{item.firstName}}"></div> -->
+<!-- <p>
+    <span><strong>Age: </strong>{{item.candidateAge}}</span>
+</p>
+<p>
+    <span><strong>Gender: </strong>{{item.gender}}</span>
+</p>
+<p>
+    <span><strong>Address: </strong>{{item.street}}, {{item.city}}, {{item.state}}, {{item.zip}}</span>
+</p>
+<p>
+    <span><strong>Job Location: </strong>{{item.jobLocation}}</span>
+</p>
+<p>
+    <span><strong>Skills Set: </strong>{{item.skills}}</span>
+</p>
+<p>
+    <span><strong>Description: </strong>{{item.content}}</span>
+</p> -->
+
+
+<!-- <div class="row mt-4">
+    <div class="col-sm-12 d-flex">
+        <nav class="mx-auto">
+            <ul class="pagination">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div> -->

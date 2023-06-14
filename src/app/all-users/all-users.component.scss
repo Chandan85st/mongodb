@@ -1,0 +1,202 @@
+.model-waper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 22;
+    background: rgba(0, 0, 0, 0.5);
+    .model-box { min-width: 450px;}
+    .form-model { 
+        min-width: 1200px; max-height: 90vh; overflow-y: auto;
+    }
+}
+
+.navlinks {
+    display: inline-flex;
+}
+
+.navlinks li {
+    margin-right: 0;
+    margin-left: -1px;
+
+    &:first-child .navlink {
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+    }
+
+    &:last-child .navlink {
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+    }
+}
+
+.navlink {
+    margin-left: 0;
+    border-width: 1px;
+    border-color: rgb(209 213 219);
+    background-color: white;
+    padding: 0.5rem 0.75rem;
+    line-height: 1.25;
+    color: rgb(107 114 128);
+
+    &:hover {
+        background-color: rgb(243 244 246);
+        color: rgb(55 65 81);
+    }
+
+    &.active {
+        background-color: rgb(220, 222, 226);
+        color: rgb(55 65 81);
+    }
+}
+
+
+
+
+
+
+
+
+
+.user-card {
+    p {
+      font-size: 14px;
+      font-weight: 500;
+      margin: 0;
+      border-top: 1px solid #ccc;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      strong {
+        display: inline-block;
+        margin-right: 10px;
+        font-weight: 600;
+      }
+      &:nth-child(odd){ background: #f8f8f8;}
+    }
+    button, a {
+      border: none;
+      background: none;
+      font-size: 16px;
+      float: right;
+      font-weight: bold;
+    }
+  }
+  .image-thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 100%;
+    background: #ccc;
+    .inputfile {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+      & + label {
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: ease-in-out 0.4s;
+        font-size: 12px;
+        position: absolute;
+        top: 10px;
+        flex-direction: column;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.8);
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        border-radius: 50px;
+        opacity: 0;
+      }
+    }
+    .inputfile:hover + label {
+      opacity: 1;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    .upload-img {
+      max-width: 30px;
+      height: auto;
+    }
+    &.bottom {
+      top: unset;
+      bottom: 10px;
+      width: 60px;
+      height: 60px;
+      right: 10px;
+    }
+  }
+  .add-us {
+    position: relative;
+    img {
+      width: 90px;
+      height: 90px;
+      overflow: hidden;
+      border-radius: 100%;
+      border: 2px solid #efefef;
+    }
+    .inputfile {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+      & + label {
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 600;
+        margin: 0 0 0 1rem;
+        padding: 8px 20px;
+        img {
+          width: 25px;
+          height: auto;
+          border: none;
+        }
+        .upload-img {
+          max-width: 30px;
+          height: auto;
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+  select.form-control[multiple], select.form-control[size] {
+    height: 90%;
+  }
+  .top-right {
+    top: 5px;
+    right: 5px;
+    font-weight: 600;
+    font-size: 22px;
+  }
+  .form-model { 
+    min-width: 1200px; max-height: 90vh; overflow-y: auto;
+    .container {
+        padding: unset !important;
+        .card {
+          margin: unset !important;
+          box-shadow: none !important;
+          border: none;
+          padding: 0 !important;
+        }
+    }
+  }
+  .form-control::placeholder  {
+    font-family: FontAwesome;
+  }
